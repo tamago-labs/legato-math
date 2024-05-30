@@ -169,8 +169,6 @@ module legato_math::legato_math {
         let output_3 = power(  fixed_point64::create_from_u128(30), fixed_point64::create_from_u128(5) );
         assert!( fixed_point64::round(output_3) == 24300000, 2 ); // 30^5 = 24300000
 
-        // tests for nth-root calculations
-
         // Asserts that the square root of 16 is approximately 4.
         let n_output_1 = power(  fixed_point64::create_from_u128(16), fixed_point64::create_from_rational(1, 2 )  );
         assert!( fixed_point64::almost_equal( n_output_1, fixed_point64::create_from_rational( 4, 1  ), fixed_point64::create_from_u128(1)) , 3 );
