@@ -128,7 +128,7 @@ module legato_math::legato_math {
         math_fixed64::mul_div( after_subtracted, fixed_point64::create_from_u128(1) , log_2_e)
     }
 
-    fun absolute( a: FixedPoint64, b:  FixedPoint64 ) : (FixedPoint64, bool) {
+    public fun absolute( a: FixedPoint64, b:  FixedPoint64 ) : (FixedPoint64, bool) {
         if (fixed_point64::greater_or_equal(a, b)) { 
             (fixed_point64::sub(a, b), false)
         } else {
