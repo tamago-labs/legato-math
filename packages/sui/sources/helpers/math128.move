@@ -3,10 +3,9 @@
 
 
 /// Standard math utilities missing in the Move Language.
-module legato_lbp::math128 {
-
-    use legato_lbp::fixed_point32::{Self, FixedPoint32}; 
-    use legato_lbp::fixed_point64::{Self, FixedPoint64};
+module legato_math::math128 {
+ 
+    use legato_math::fixed_point64::{Self, FixedPoint64};
 
     /// Cannot log2 the value 0
     const EINVALID_ARG_FLOOR_LOG2: u64 = 1;
@@ -74,29 +73,7 @@ module legato_lbp::math128 {
         };
         res
     }
-
-    // Returns log2(x)
-    public fun log2(x: u128): FixedPoint32 {
-        let integer_part = floor_log2(x);
-        // Normalize x to [1, 2) in fixed point 32.
-        if (x >= 1 << 32) {
-            x = x >> (integer_part - 32);
-        } else {
-            x = x << (32 - integer_part);
-        };
-        let frac = 0;
-        let delta = 1 << 31;
-        while (delta != 0) {
-            // log x = 1/2 log x^2
-            // x in [1, 2)
-            x = (x * x) >> 32;
-            // x is now in [1, 4)
-            // if x in [2, 4) then log x = 1 + log (x / 2)
-            if (x >= (2 << 32)) { frac = frac + delta; x = x >> 1; };
-            delta = delta >> 1;
-        };
-        fixed_point32::create_from_raw_value (((integer_part as u64) << 32) + frac)
-    }
+ 
 
     // Return log2(x) as FixedPoint64
     public fun log2_64(x: u128): FixedPoint64 {

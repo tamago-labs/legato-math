@@ -1,12 +1,11 @@
 [package]
-name = "legato-lbp"
-version = "0.1.0"
+name = "legato-math"
+version = "0.1.0" 
 
 [dependencies]
-Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "mainnet-v1.9.1" }
-SuiSystem = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-system", rev = "mainnet-v1.9.1" }
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
+SuiSystem = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-system", rev = "framework/testnet" }
 
 
 [addresses]
-legato_lbp = "0x0" 
-sui_system = "0x3"
+legato_math = "0x0"

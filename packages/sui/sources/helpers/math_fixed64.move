@@ -3,9 +3,9 @@
 
 /// Standard math utilities missing in the Move Language.
 
-module legato_lbp::math_fixed64 {
-    use legato_lbp::fixed_point64::{Self, FixedPoint64};
-    use legato_lbp::math128;
+module legato_math::math_fixed64 {
+    use legato_math::fixed_point64::{Self, FixedPoint64};
+    use legato_math::math128;
 
     /// Abort code on overflow
     const EOVERFLOW_EXP: u64 = 601;
