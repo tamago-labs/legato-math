@@ -1,6 +1,6 @@
 # Legato Math
 
-Legato Math is a fixed-point math library for Sui Move that allows for computing the nth root and raising a number to the power of a fractional exponent using fixed-point numbers. It extends Aptos's math library with custom code that utilizes the Newton-Raphson method. Initially made for Legato LBP, we separated it into an open-source repo that may benefit other projects seeking this solution.
+Legato Math is a fixed-point math library for Sui Move that allows for computing the nth root and raising a number to the power of a fractional exponent in all fixed-point numbers. It extends Aptos's math library with custom code that utilizes the Newton-Raphson method. Initially made for Legato LBP, we separated it into an open-source repo that may benefit other projects seeking this solution.
 
 Earlier, we wrote an article about the basics of fixed-point math in Sui, which you can find here:
 
