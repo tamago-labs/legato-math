@@ -24,7 +24,7 @@ Now let's try converting 3/4 into a fixed-point number using our library.
 ```
 use legato_math::fixed_point64;
 
-fixed_point32::create_from_rational(3,4); // represents 3/4 or 0.75
+fixed_point64::create_from_rational(3,4); // represents 3/4 or 0.75
 ```
 
 Then we can do the basic.
@@ -69,7 +69,7 @@ Raising a fixed-point number to a fractional exponent
 ```
 use legato_math::legato_math;
 
-// Asserts that the result of raising 10/9 to the power of 3/5 is approximately approximately 0.566896603.
+// Asserts that the result of raising 10/9 to the power of 3/5 is approximately 0.566896603.
 let output_1 = legato_math::power(  fixed_point64::create_from_rational( 3, 5 ), fixed_point64::create_from_rational( 10, 9 )  );
 assert!( fixed_point64::almost_equal( output_1, fixed_point64::create_from_rational( 566896603, 1000000000 ), fixed_point64::create_from_u128(1)) , 1 );
 
