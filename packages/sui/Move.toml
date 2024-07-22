@@ -2,9 +2,7 @@
 name = "LegatoMath"
 version = "0.1.0" 
 
-[dependencies]
-Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
-SuiSystem = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-system", rev = "framework/testnet" }
+[dependencies] 
 
 
 [addresses]
