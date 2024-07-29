@@ -42,11 +42,11 @@ module legato_math::math128 {
     }
 
     /// Return the value of n raised to power e
-    public fun pow(n: u128, e: u128): u128 {
+    public fun pow(mut n: u128, mut e: u128): u128 {
         if (e == 0) {
             1
         } else {
-            let p = 1;
+            let mut p = 1;
             while (e > 1) {
                 if (e % 2 == 1) {
                     p = p * n;
@@ -59,11 +59,11 @@ module legato_math::math128 {
     }
 
     /// Returns floor(log2(x))
-    public fun floor_log2(x: u128): u8 {
-        let res = 0;
+    public fun floor_log2(mut x: u128): u8 {
+        let mut res = 0;
         assert!(x != 0, EINVALID_ARG_FLOOR_LOG2);
         // Effectively the position of the most significant set bit
-        let n = 64;
+        let mut n = 64;
         while (n > 0) {
             if (x >= (1 << n)) {
                 x = x >> n;
@@ -76,7 +76,7 @@ module legato_math::math128 {
  
 
     // Return log2(x) as FixedPoint64
-    public fun log2_64(x: u128): FixedPoint64 {
+    public fun log2_64(mut x: u128): FixedPoint64 {
         let integer_part = floor_log2(x);
         // Normalize x to [1, 2) in fixed point 63. To ensure x is smaller then 1<<64
         if (x >= 1 << 63) {
@@ -84,8 +84,8 @@ module legato_math::math128 {
         } else {
             x = x << (63 - integer_part);
         };
-        let frac = 0;
-        let delta = 1 << 63;
+        let mut frac = 0;
+        let mut delta = 1 << 63;
         while (delta != 0) {
             // log x = 1/2 log x^2
             // x in [1, 2)
@@ -106,7 +106,7 @@ module legato_math::math128 {
         // for odd n [2^((n+1)/2)/sqrt(2), 2^((n+1)/2). For even n the left end point is integer for odd the right
         // end point is integer. If we choose as our first approximation the integer end point we have as maximum
         // relative error either (sqrt(2) - 1) or (1 - 1/sqrt(2)) both are smaller then 1/2.
-        let res = 1 << ((floor_log2(x) + 1) >> 1);
+        let mut res = 1 << ((floor_log2(x) + 1) >> 1);
         // We use standard newton-rhapson iteration to improve the initial approximation.
         // The error term evolves as delta_i+1 = delta_i^2 / 2 (quadratic convergence).
         // It turns out that after 5 iterations the delta is smaller than 2^-64 and thus below the treshold.

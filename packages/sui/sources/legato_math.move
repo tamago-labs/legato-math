@@ -63,12 +63,12 @@ module legato_math::legato_math {
         } else {
             
             // Initialize guess 
-            let guess = fixed_point64::create_from_rational(1, 2);
+            let mut guess = fixed_point64::create_from_rational(1, 2);
 
             // Define the epsilon value for determining convergence
             let epsilon = fixed_point64::create_from_rational( 1, 1000 );
 
-            let delta = fixed_point64::create_from_rational( MAX_U64, 1 );
+            let mut delta = fixed_point64::create_from_rational( MAX_U64, 1 );
 
             // Perform Newton-Raphson iterations until convergence
             while ( fixed_point64::greater( delta ,  epsilon )) {
@@ -91,11 +91,11 @@ module legato_math::legato_math {
     }
 
     // Function to calculate the power of a FixedPoint64 number
-    public fun pow_raw(x: FixedPoint64, n: u64): FixedPoint64 {
+    public fun pow_raw(x: FixedPoint64, mut n: u64): FixedPoint64 {
         // Get the raw value of x as a 256-bit unsigned integer
-        let raw_value = (fixed_point64::get_raw_value(x) as u256);
+        let mut raw_value = (fixed_point64::get_raw_value(x) as u256);
 
-        let res: u256 = 1 << 64;
+        let mut res: u256 = 1 << 64;
 
         // Perform exponentiation using bitwise operations
         while (n != 0) {

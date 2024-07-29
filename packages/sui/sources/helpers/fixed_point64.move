@@ -14,7 +14,7 @@ module legato_math::fixed_point64 {
     /// floating-point has less than 16 decimal digits of precision, so
     /// be careful about using floating-point to convert these values to
     /// decimal.
-    struct FixedPoint64 has copy, drop, store { value: u128 }
+    public struct FixedPoint64 has copy, drop, store { value: u128 }
 
     const MAX_U128: u256 = 340282366920938463463374607431768211455;
 

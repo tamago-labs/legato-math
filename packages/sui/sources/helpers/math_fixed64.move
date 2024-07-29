@@ -16,7 +16,7 @@ module legato_math::math_fixed64 {
     /// Square root of fixed point number
     public fun sqrt(x: FixedPoint64): FixedPoint64 {
         let y = fixed_point64::get_raw_value(x);
-        let z = (math128::sqrt(y) << 32 as u256);
+        let mut z = (math128::sqrt(y) << 32 as u256);
         z = (z + ((y as u256) << 64) / z) >> 1;
         fixed_point64::create_from_raw_value((z as u128))
     }
@@ -69,7 +69,7 @@ module legato_math::math_fixed64 {
         // 2^(remainder / ln2) = (2^(1/580))^exponent * exp(x / 2^64)
         let roottwo = 18468802611690918839;  // fixed point representation of 2^(1/580)
         // 2^(1/580) = roottwo(1 - eps), so the number we seek is roottwo^exponent (1 - eps * exponent)
-        let power = pow_raw(roottwo, (exponent as u128));
+        let mut power = pow_raw(roottwo, (exponent as u128));
         let eps_correction = 219071715585908898;
         power = power - ((power * eps_correction * exponent) >> 128);
         // x is fixed point number smaller than bigfactor/2^64 < 0.0011 so we need only 5 tayler steps
@@ -84,8 +84,8 @@ module legato_math::math_fixed64 {
     }
 
     // Calculate x to the power of n, where x and the result are fixed point numbers.
-    fun pow_raw(x: u256, n: u128): u256 {
-        let res: u256 = 1 << 64;
+    fun pow_raw(mut x: u256, mut n: u128): u256 {
+        let mut res: u256 = 1 << 64;
         while (n != 0) {
             if (n & 1 != 0) {
                 res = (res * x) >> 64;
