@@ -1,7 +1,7 @@
 [package]
 name = "LegatoMath"
 version = "0.1.0" 
-published-at = "0x4115315fce4d6dea8f8e9a7526f4b02a5c1b769e2d9f87167be388fb8f728d5b"
+published-at = "0x81a9d7b2fa19ab63c75aa67ac87e56cf8dcf4af3d442e79bd9863c8a57730bcd"
 edition = "2024.beta"
 
 [dependencies] 
