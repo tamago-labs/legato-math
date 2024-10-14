@@ -5,7 +5,7 @@ published-at = "0x81a9d7b2fa19ab63c75aa67ac87e56cf8dcf4af3d442e79bd9863c8a57730b
 edition = "2024.beta"
 
 [dependencies] 
-MoveStdlib = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/move-stdlib", rev = "framework/mainnet" }
+MoveStdlib = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/move-stdlib", rev = "framework/testnet" }
 
 [addresses]
 legato_math = "0x0"
