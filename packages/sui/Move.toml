@@ -8,4 +8,4 @@ edition = "2024.beta"
 MoveStdlib = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/move-stdlib", rev = "framework/testnet" }
 
 [addresses]
-legato_math = "0x0"
+legato_math = "0x541db717d314f0671dc39ceb3263cf010b19dbf264b5d83ba1a27a0994be04d9"
