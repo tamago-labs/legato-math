@@ -1,11 +1,11 @@
 [package]
 name = "LegatoMath"
 version = "0.1.0" 
-published-at = "0x541db717d314f0671dc39ceb3263cf010b19dbf264b5d83ba1a27a0994be04d9"
+published-at = "0x02dc2de613e946a2a56434189b8875cfcc457ab2c6735e014bdb56209a1bedb6"
 edition = "2024.beta"
 
 [dependencies] 
-MoveStdlib = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/move-stdlib", rev = "framework/testnet" }
+MoveStdlib = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/move-stdlib", rev = "framework/mainnet" }
 
 [addresses]
-legato_math = "0x541db717d314f0671dc39ceb3263cf010b19dbf264b5d83ba1a27a0994be04d9"
+legato_math = "0x02dc2de613e946a2a56434189b8875cfcc457ab2c6735e014bdb56209a1bedb6"
